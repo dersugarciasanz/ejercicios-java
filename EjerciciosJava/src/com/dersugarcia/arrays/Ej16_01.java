@@ -23,7 +23,7 @@ public class Ej16_01 {
 	
 	public static int max(int[] array) {
 		int max = array[0];
-		
+		// max = Integer.MIN_VALUE;
 		for(int i=1; i<array.length; i++) {
 			if (array[i]>max) {
 				max = array[i];
@@ -34,7 +34,7 @@ public class Ej16_01 {
 	}
 	public static int min(int[] array) {
 		int min = array[0];
-		
+		// min = Integer.MAX_VALUE;
 		for(int i=1; i<array.length; i++) {
 			if (array[i]<min) {
 				min = array[i];
