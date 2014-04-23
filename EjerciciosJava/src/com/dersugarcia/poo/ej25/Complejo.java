@@ -15,9 +15,9 @@ public class Complejo {
 		contador++;
 	}
 	public Complejo(double pReal, double pImag) {
+		this(); //Llamar al constructor sin par‡metros
 		this.pReal = pReal;
 		this.pImag = pImag;
-		contador++;
 	}
 	
 	//Getters y setters
