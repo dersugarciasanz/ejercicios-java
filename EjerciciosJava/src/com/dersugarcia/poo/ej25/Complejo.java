@@ -5,7 +5,7 @@ public class Complejo {
 	//Variables de instancia
 	private double pReal, pImag;
 	//Variables de clase
-	public static int contador = 0;
+	private static int contador = 0;
 	
 	
 	//Constructores
@@ -18,6 +18,10 @@ public class Complejo {
 		this.pReal = pReal;
 		this.pImag = pImag;
 		contador++;
+	}
+
+	public static int getContador() {
+		return contador;
 	}
 
 	//MŽtodos de instancia

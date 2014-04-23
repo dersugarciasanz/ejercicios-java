@@ -19,7 +19,7 @@ public class PruebaComplejo {
 		c3.sumar(c3);
 		System.out.println("c3: " + c3.toString());
 		System.out.println("c3 es igual a new Complejo(6.4,21.2)? " + c3.equals(new Complejo(6.4,21.2)));
-		System.out.println("Se han creado  " + Complejo.contador + " instancias de la clase Complejo.");
+		System.out.println("Se han creado  " + Complejo.getContador() + " instancias de la clase Complejo.");
 		
 	}
 
