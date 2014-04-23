@@ -4,16 +4,20 @@ public class Complejo {
 
 	//Variables de instancia
 	private double pReal, pImag;
+	//Variables de clase
+	public static int contador = 0;
 	
 	
 	//Constructores
 	public Complejo() {
 		this.pReal = 0.0;
 		this.pImag = 0.0;
+		contador++;
 	}
 	public Complejo(double pReal, double pImag) {
 		this.pReal = pReal;
 		this.pImag = pImag;
+		contador++;
 	}
 
 	//MŽtodos de instancia
