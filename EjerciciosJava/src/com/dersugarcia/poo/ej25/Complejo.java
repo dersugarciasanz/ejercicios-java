@@ -19,7 +19,8 @@ public class Complejo {
 		this.pImag = pImag;
 		contador++;
 	}
-
+	
+	//Getters y setters
 	public static int getContador() {
 		return contador;
 	}
