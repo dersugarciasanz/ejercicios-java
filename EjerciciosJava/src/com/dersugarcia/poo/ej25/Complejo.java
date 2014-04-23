@@ -30,6 +30,11 @@ public class Complejo {
 	public String toString() {
 		return "(" + this.pReal + ", " + this.pImag + ")";
 	}
+	public boolean equals(Complejo c) {
+		
+		return (this.pReal == c.pReal && this.pImag == c.pImag);
+		
+	}
 	
 	
 	//MŽtodos de clase
