@@ -6,7 +6,7 @@ public class PruebaDNI {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		DNI.validar("72745462G");
+		System.out.println(DNI.validar("72745462G"));
 	}
 
 }
