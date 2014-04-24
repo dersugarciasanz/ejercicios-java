@@ -1,14 +1,14 @@
 package com.dersugarcia.validadores;
-import com.dersugarcia.interfaces.*;
 
-public class Buzz implements InterfazValidador {
+public class Buzz extends Validador {
 	
-	private static final String output = "Buzz";
+	public Buzz() {
+		super("Buzz");
+	}
 	
+	@Override
 	public boolean validate(int num) {
 		return (num % 5 == 0);
 	}
-	public String getOutput() {
-		return output;
-	}
+
 }

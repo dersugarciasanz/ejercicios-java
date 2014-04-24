@@ -8,13 +8,13 @@ import com.dersugarcia.validadores.Fizz;
 import com.dersugarcia.validadores.Mozz;
 
 public class FizzBuzz {
-	ArrayList<InterfazValidador> arrayI;
+	ArrayList<InterfazValidador> validadores;
 	
 	public FizzBuzz() {
-		arrayI = new ArrayList<InterfazValidador>();
-		arrayI.add(new Fizz());
-		arrayI.add(new Buzz());
-		arrayI.add(new Mozz());
+		validadores = new ArrayList<InterfazValidador>();
+		validadores.add(new Fizz());
+		validadores.add(new Buzz());
+		validadores.add(new Mozz());
 	}
 	public String calcular(int num) {
 		
@@ -30,9 +30,9 @@ public class FizzBuzz {
 	public String obtenerTexto(int num){
 		String pal="";
 
-		for (int i=0; i<arrayI.size(); i++) {
-			if (arrayI.get(i).validate(num)) {
-				pal+= arrayI.get(i).getOutput();
+		for (InterfazValidador validador : validadores) {
+			if (validador.validate(num)) {
+				pal+= validador.getOutput();
 			}
 		}
 		

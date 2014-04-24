@@ -1,15 +1,14 @@
 package com.dersugarcia.validadores;
-import com.dersugarcia.interfaces.*;
 
-public class Fizz implements InterfazValidador {
+public class Fizz extends Validador {
+
+	public Fizz() {
+		super("Fizz");
+	}
 	
-	private static final String output = "Fizz";
-	
+	@Override
 	public boolean validate(int num) {
 		return (num % 3 == 0);
 	}
-	
-	public String getOutput() {
-		return output;
-	}
+
 }
