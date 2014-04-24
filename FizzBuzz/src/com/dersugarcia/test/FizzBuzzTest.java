@@ -5,17 +5,42 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.dersugarcia.fizzbuzz.Buzz;
+import com.dersugarcia.fizzbuzz.Fizz;
 import com.dersugarcia.fizzbuzz.FizzBuzz;
 
 public class FizzBuzzTest {
 	
 	FizzBuzz fb;
 
+
+	
 	@Before
 	public void setUp() throws Exception {
 		fb = new FizzBuzz();
+		
 	}
-
+	
+	@Test
+	public void testObtenerTexto() {
+		assertEquals("1",fb.obtenerTexto(1));
+		assertEquals("Fizz",fb.obtenerTexto(3));
+		assertEquals("Buzz",fb.obtenerTexto(5));
+		assertEquals("FizzBuzz",fb.obtenerTexto(15));
+	}
+	
+	@Test
+	public void testFizz() {
+		assertTrue(Fizz.eresFizz(3));
+		assertTrue(Fizz.eresFizz(15));
+		assertEquals("Fizz", Fizz.dameTexto());
+	}
+	@Test
+	public void testBuzz() {
+		assertTrue(Buzz.eresBuzz(5));
+		assertTrue(Buzz.eresBuzz(15));
+		assertEquals("Buzz", Buzz.dameTexto());
+	}
 	@Test
 	public void test() {
 		assertEquals("FizzBuzz 1","1", fb.calcular(1));

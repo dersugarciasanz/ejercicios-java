@@ -10,19 +10,23 @@ public class FizzBuzz {
 			if(i!=1) {
 				s += " ";
 			}
-			if(i%15 == 0){
-				s+="FizzBuzz";
-			} else if(i%3 == 0){
-				s+="Fizz";
-			} else if (i%5 == 0) {
-				s+="Buzz";
-			} else {
-				s += i;
-			}
-		
+			s += obtenerTexto(i);
 		}
 		return s;
 	}
-	
+	public String obtenerTexto(int num){
+		String pal="";
+
+		if (Fizz.eresFizz(num)) {
+			pal+= Fizz.dameTexto();
+		}
+		if (Buzz.eresBuzz(num)) {
+			pal+=Buzz.dameTexto();
+		} else if(!Fizz.eresFizz(num)) {
+				pal=String.valueOf(num);
+		}
+
+		return pal;
+	}
 	
 }
