@@ -1,6 +1,6 @@
 package com.dersugarcia.clasesestandar;
 
-public class DNI {
+public abstract class DNI {
 
 	private final static char[] CARACTERES = { 'T', 'R', 'W', 'A', 'G', 'M',
 			'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H',
