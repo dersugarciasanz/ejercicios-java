@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.dersugarcia.fizzbuzz.Buzz;
-import com.dersugarcia.fizzbuzz.Fizz;
 import com.dersugarcia.fizzbuzz.FizzBuzz;
+import com.dersugarcia.validadores.Buzz;
+import com.dersugarcia.validadores.Fizz;
 
 public class FizzBuzzTest {
 	
@@ -31,15 +31,21 @@ public class FizzBuzzTest {
 	
 	@Test
 	public void testFizz() {
-		assertTrue(Fizz.eresFizz(3));
-		assertTrue(Fizz.eresFizz(15));
-		assertEquals("Fizz", Fizz.dameTexto());
+		assertFalse(Fizz.validate(1));
+		assertFalse(Fizz.validate(2));
+		assertTrue(Fizz.validate(3));
+		assertTrue(Fizz.validate(15));
+		assertTrue(Fizz.validate(30));
+		assertEquals("Fizz", Fizz.getOutput());
 	}
 	@Test
 	public void testBuzz() {
-		assertTrue(Buzz.eresBuzz(5));
-		assertTrue(Buzz.eresBuzz(15));
-		assertEquals("Buzz", Buzz.dameTexto());
+		assertFalse(Buzz.validate(1));
+		assertFalse(Buzz.validate(2));
+		assertTrue(Buzz.validate(5));
+		assertTrue(Buzz.validate(15));
+		assertTrue(Buzz.validate(30));
+		assertEquals("Buzz", Buzz.getOutput());
 	}
 	@Test
 	public void test() {

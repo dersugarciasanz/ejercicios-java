@@ -1,29 +1,35 @@
 package com.dersugarcia.fizzbuzz;
 
+import com.dersugarcia.validadores.Buzz;
+import com.dersugarcia.validadores.Fizz;
+
 public class FizzBuzz {
 
 
 	
 	public String calcular(int num) {
-		String s = "";
+		StringBuffer s = new StringBuffer();
 		for(int i=1; i<=num; i++) {
 			if(i!=1) {
-				s += " ";
+				s.append(" ");
 			}
-			s += obtenerTexto(i);
+			s.append(obtenerTexto(i));
 		}
-		return s;
+		return s.toString();
 	}
 	public String obtenerTexto(int num){
 		String pal="";
 
-		if (Fizz.eresFizz(num)) {
-			pal+= Fizz.dameTexto();
+		if (Fizz.validate(num)) {
+			pal+= Fizz.getOutput();
 		}
-		if (Buzz.eresBuzz(num)) {
-			pal+=Buzz.dameTexto();
-		} else if(!Fizz.eresFizz(num)) {
-				pal=String.valueOf(num);
+		
+		if (Buzz.validate(num)) {
+			pal+=Buzz.getOutput();
+		}
+		
+		if(pal.length()==0) {
+			pal=String.valueOf(num);
 		}
 
 		return pal;
