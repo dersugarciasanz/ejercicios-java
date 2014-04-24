@@ -1,12 +1,11 @@
 package com.dersugarcia.validadores;
 import com.dersugarcia.interfaces.*;
 
-public class Fizz implements InterfazValidador {
-	
-	private static final String output = "Fizz";
+public class Mozz implements InterfazValidador {
+	private static final String output = "Mozz";
 	
 	public boolean validate(int num) {
-		return (num % 3 == 0);
+		return (num % 7 == 0);
 	}
 	
 	public String getOutput() {
