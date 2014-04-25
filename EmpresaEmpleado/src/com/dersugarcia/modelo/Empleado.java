@@ -7,11 +7,11 @@ public class Empleado implements IEmpleado {
 	protected String nombre;
 	protected Empresa empresa;
 	protected double sueldo;
-	private static int contador = 0;
+	
 	
 	
 	public Empleado(Empresa empresa, String nombre, double sueldo) {
-		this(empresa, nombre, sueldo, contador++);
+		this(empresa, nombre, sueldo, empresa.getContador());
 	}
 	protected Empleado(Empresa empresa, String nombre, double sueldo, int numEmpleado) {
 		this.empresa = empresa;
@@ -39,22 +39,13 @@ public class Empleado implements IEmpleado {
 	}
 	
 	public String toString() {
-		return "{numero: " + numEmpleado + ", nombre: " + nombre + ", sueldo: " + sueldo + "}";
+		return "{numero: " + numEmpleado + ", nombre: \"" + nombre + "\", sueldo: " + sueldo + "}";
 	}
 	public final void aumentarSueldo(int N) {
 		sueldo += sueldo*N;
 	}
 	public void despedir() {
-		boolean encontrado = false;
-		int i=0;
-		IEmpleado empleado;
-		while(!encontrado && i<empresa.getTamanio()) {
-			empleado = empresa.getEmpleado(i);
-			if(empleado.equals(this)) {
-				encontrado = true;
-				empresa.despideEmpleado(i);
-			}
-		}
+		empresa = null;
 	}
 
 }

@@ -8,4 +8,5 @@ public interface IEmpleado {
 	public void setNombre(String nombre);
 	public void setSueldo(double sueldo);
 	public void despedir();
+	public void aumentarSueldo(int N);
 }
