@@ -4,13 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-
 import org.junit.Before;
 import org.junit.Test;
 
+import com.dersugarcia.factories.ValidatorFactory;
 import com.dersugarcia.fizzbuzz.FizzBuzz;
-import com.dersugarcia.interfaces.InterfazValidador;
 import com.dersugarcia.validadores.Buzz;
 import com.dersugarcia.validadores.Fizz;
 import com.dersugarcia.validadores.Mozz;
@@ -18,16 +16,21 @@ import com.dersugarcia.validadores.Mozz;
 public class FizzBuzzTest {
 	
 	FizzBuzz fb;
-	ArrayList<InterfazValidador> arrayI;
+	Fizz f;
+	Buzz b;
+	Mozz m;
 	
 	@Before
 	public void setUp() throws Exception {
 		fb = new FizzBuzz();
 		
-		arrayI = new ArrayList<InterfazValidador>();
-		arrayI.add(new Fizz());
-		arrayI.add(new Buzz());
-		arrayI.add(new Mozz());
+		f = ValidatorFactory.getFizzValidator();
+		b = ValidatorFactory.getBuzzValidator();
+		m = ValidatorFactory.getMozzValidator();
+
+		fb.addValidador(f);
+		fb.addValidador(b);
+		fb.addValidador(m);
 	}
 	
 	@Test
@@ -42,30 +45,30 @@ public class FizzBuzzTest {
 	@Test
 	public void testFizz() {
 		
-		assertFalse(arrayI.get(0).validate(1));
-		assertFalse(arrayI.get(0).validate(2));
-		assertTrue(arrayI.get(0).validate(3));
-		assertTrue(arrayI.get(0).validate(15));
-		assertTrue(arrayI.get(0).validate(30));
-		assertEquals("Fizz", arrayI.get(0).getOutput());
+		assertFalse(f.validate(1));
+		assertFalse(f.validate(2));
+		assertTrue(f.validate(3));
+		assertTrue(f.validate(15));
+		assertTrue(f.validate(30));
+		assertEquals("Fizz", f.getOutput());
 	}
 	@Test
 	public void testBuzz() {
-		assertFalse(arrayI.get(1).validate(1));
-		assertFalse(arrayI.get(1).validate(2));
-		assertTrue(arrayI.get(1).validate(5));
-		assertTrue(arrayI.get(1).validate(15));
-		assertTrue(arrayI.get(1).validate(30));
-		assertEquals("Buzz", arrayI.get(1).getOutput());
+		assertFalse(b.validate(1));
+		assertFalse(b.validate(2));
+		assertTrue(b.validate(5));
+		assertTrue(b.validate(15));
+		assertTrue(b.validate(30));
+		assertEquals("Buzz", b.getOutput());
 	}
 	@Test
 	public void testMozz() {
-		assertFalse(arrayI.get(2).validate(1));
-		assertFalse(arrayI.get(2).validate(2));
-		assertTrue(arrayI.get(2).validate(7));
-		assertTrue(arrayI.get(2).validate(14));
-		assertTrue(arrayI.get(2).validate(21));
-		assertEquals("Mozz", arrayI.get(2).getOutput());
+		assertFalse(m.validate(1));
+		assertFalse(m.validate(2));
+		assertTrue(m.validate(7));
+		assertTrue(m.validate(14));
+		assertTrue(m.validate(21));
+		assertEquals("Mozz", m.getOutput());
 	}
 	@Test
 	public void test() {

@@ -12,10 +12,8 @@ public class FizzBuzz {
 	
 	public FizzBuzz() {
 		validadores = new ArrayList<InterfazValidador>();
-		validadores.add(new Fizz());
-		validadores.add(new Buzz());
-		validadores.add(new Mozz());
 	}
+	
 	public String calcular(int num) {
 		
 		StringBuffer s = new StringBuffer();
@@ -41,6 +39,12 @@ public class FizzBuzz {
 		}
 
 		return pal;
+	}
+	
+	public void addValidador(InterfazValidador v) {
+		if (!validadores.contains(v)) {
+			validadores.add(v);
+		}
 	}
 	
 }
