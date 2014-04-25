@@ -5,12 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.dersugarcia.interfaces.IEmpleado;
 import com.dersugarcia.modelo.Empresa;
 
 public class EmpresaTest {
 	Empresa empresa;
-	IEmpleado empleado1;
 
 	@Before
 	public void setUp() throws Exception {
@@ -23,7 +21,7 @@ public class EmpresaTest {
 		assertEquals("Empresa1",empresa.getNombre());
 		assertEquals(5,empresa.getTamanio());
 		
-
+		empresa.getEmpleado(0).toString();
 		
 		empresa.despideEmpleado(0);
 		assertNull(empresa.getEmpleado(0));
