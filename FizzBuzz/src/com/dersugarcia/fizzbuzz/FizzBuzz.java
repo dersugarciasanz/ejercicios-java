@@ -32,8 +32,7 @@ public class FizzBuzz {
 					pal+= validador.getOutput();
 				}
 			} catch (NumberNotValidException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println(e.getMessage());
 			}
 		}
 		
