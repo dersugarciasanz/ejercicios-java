@@ -29,9 +29,13 @@ public class Empresa {
 	public IEmpleado getEmpleado(int num) throws IndexOutOfBoundsException {
 		return empleados[num];
 	}
+	
 	public void despideEmpleado(int num) throws IndexOutOfBoundsException {
 		empleados[num] = null;
 	}
-	
+	public void nuevoEmpleado(String nombre, int sueldo) throws IndexOutOfBoundsException {
+		IEmpleado empleado = new Empleado(this, nombre, sueldo);
+		empleados[empleado.getNumEmpleado()] = empleado;
+	}
 
 }
