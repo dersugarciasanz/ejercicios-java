@@ -2,10 +2,8 @@ package com.dersugarcia.fizzbuzz;
 
 import java.util.ArrayList;
 
+import com.dersugarcia.excepciones.NumberNotValidException;
 import com.dersugarcia.interfaces.InterfazValidador;
-import com.dersugarcia.validadores.Buzz;
-import com.dersugarcia.validadores.Fizz;
-import com.dersugarcia.validadores.Mozz;
 
 public class FizzBuzz {
 	ArrayList<InterfazValidador> validadores;
@@ -29,8 +27,13 @@ public class FizzBuzz {
 		String pal="";
 
 		for (InterfazValidador validador : validadores) {
-			if (validador.validate(num)) {
-				pal+= validador.getOutput();
+			try {
+				if (validador.validate(num)) {
+					pal+= validador.getOutput();
+				}
+			} catch (NumberNotValidException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 		

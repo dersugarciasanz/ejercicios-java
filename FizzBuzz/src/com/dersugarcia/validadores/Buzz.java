@@ -1,5 +1,7 @@
 package com.dersugarcia.validadores;
 
+import com.dersugarcia.excepciones.NumberNotValidException;
+
 public class Buzz extends Validador {
 	
 //	public Buzz() {
@@ -7,7 +9,8 @@ public class Buzz extends Validador {
 //	}
 	
 	@Override
-	public boolean validate(int num) {
+	public boolean validate(int num) throws NumberNotValidException {
+		validateException(num);
 		return (num % 5 == 0);
 	}
 
