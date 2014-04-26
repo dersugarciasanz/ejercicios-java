@@ -19,6 +19,7 @@ public class Empresa {
 		this.tamanio = tamanio;
 		empleados = new ArrayList<IEmpleado>(tamanio);
 		contador = 0;
+		
 	}
 
 	public String getNombre() {
@@ -27,28 +28,21 @@ public class Empresa {
 
 	public int getTamanio() {
 		return tamanio;
-	}
-
-	public IEmpleado getEmpleado(int num)  {
-		for (IEmpleado empleado: empleados) {
-			if (empleado.getNumEmpleado() == num) {
-				return empleado;
-			}
-		}
-		return null;
-	}
-	
-	public void despideEmpleado(int num) {
-		IEmpleado empleado = empleados.get(num);
-		if(empleados.contains(empleado)) {
-			empleado.despedir();
-			empleados.remove(num);
-			contador--;
-		}
 		
 	}
+
+	public IEmpleado getEmpleado(int num) throws IndexOutOfBoundsException {
+		return empleados.get(num);
+	}
+	
+	public void despideEmpleado(int num) throws IndexOutOfBoundsException {
+		IEmpleado empleado = getEmpleado(num);
+		empleado.despedir();
+		empleados.remove(num);
+	}
+	
 	public void nuevoEmpleado(String nombre, int sueldo)  {
-		if(contador<tamanio) {
+		if(empleados.size()<tamanio) {
 			empleados.add(new Empleado(this, nombre, sueldo));
 			contador++;
 		}
@@ -59,5 +53,6 @@ public class Empresa {
 
 		return contador;
 	}
+	
 
 }

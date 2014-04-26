@@ -11,12 +11,12 @@ public class Empleado implements IEmpleado {
 	
 	
 	public Empleado(Empresa empresa, String nombre, double sueldo) {
-		this(empresa, nombre, sueldo, empresa.getContador());
-	}
-	protected Empleado(Empresa empresa, String nombre, double sueldo, int numEmpleado) {
 		this.empresa = empresa;
 		this.nombre = nombre;
 		this.sueldo = sueldo;
+	}
+	protected Empleado(Empresa empresa, String nombre, double sueldo, int numEmpleado) {
+		this(empresa, nombre, sueldo);
 		this.numEmpleado = numEmpleado;
 	}
 	
@@ -39,13 +39,15 @@ public class Empleado implements IEmpleado {
 	}
 	
 	public String toString() {
-		return "{numero: " + numEmpleado + ", nombre: \"" + nombre + "\", sueldo: " + sueldo + "}";
+		return this.getClass().getSimpleName() + "{numero: " + numEmpleado + ", nombre: \"" + nombre + "\", sueldo: " + sueldo + "}";
 	}
 	public final void aumentarSueldo(int N) {
-		sueldo += sueldo*N;
+		sueldo *= (1 + (N/100.0));
 	}
 	public void despedir() {
 		empresa = null;
 	}
+	
+
 
 }
