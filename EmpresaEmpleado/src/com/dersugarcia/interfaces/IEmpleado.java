@@ -9,4 +9,5 @@ public interface IEmpleado {
 	public void setSueldo(double sueldo);
 	public void despedir();
 	public void aumentarSueldo(int N);
+
 }
