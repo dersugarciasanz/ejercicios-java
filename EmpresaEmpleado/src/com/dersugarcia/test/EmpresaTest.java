@@ -5,28 +5,38 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.dersugarcia.modelo.Empresa;
+import com.dersugarcia.empresas.Empresa;
 
 public class EmpresaTest {
 	Empresa empresa;
 
 	@Before
 	public void setUp() throws Exception {
+		
 		empresa = new Empresa("Empresa1", 5);
 		empresa.nuevoEmpleado("Empleado1", 500);
 	}
-
+	
 	@Test 
-	public void test() {
-		assertEquals("Empresa1",empresa.getNombre());
-		assertEquals(5,empresa.getTamanio());
+	public void testGetEmpleado() {
 		
 		empresa.getEmpleado(0).toString();
+		try {
+		
+			empresa.getEmpleado(1).toString();
+			fail("El empleado no existe.");
+		} catch (Exception e) {
+
+			assertTrue(e instanceof NullPointerException);
+		}
+	}
+
+	@Test 
+	public void testDespideEmpleado() {
 		
 		empresa.despideEmpleado(0);
 		assertNull(empresa.getEmpleado(0));
 		
 	}
-
 	
 }
