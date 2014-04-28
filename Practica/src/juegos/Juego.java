@@ -22,15 +22,15 @@ public abstract class Juego {
 	}
 	
 	public boolean quitarVida() {
-		
-		if (vidasRestantes > 1) {
+
+		vidasRestantes--;
+		if(vidasRestantes>0) {
 			
-			vidasRestantes--;
-		} else {
-			
-			System.out.println("Juego Terminado");
+			return true;
 		}
-		return vidasRestantes > 0;
+		System.out.println("Juego Terminado");
+		return false;
+		
 	}
 	
 	public void reiniciaPartida() {
@@ -49,7 +49,6 @@ public abstract class Juego {
 			System.out.println("Se ha batido el record. El nuevo record es " + record);
 		}
 	}
-	
-	public abstract void juega();
+
 	
 }

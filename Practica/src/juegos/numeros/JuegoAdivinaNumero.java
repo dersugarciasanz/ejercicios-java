@@ -1,17 +1,28 @@
-package juegos;
+package juegos.numeros;
 
+
+import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
-public class JuegoAdivinaNumero extends Juego {
+import juegos.Juego;
+import juegos.interfaces.Jugable;
 
-	private int numeroSecreto;
 
-	public JuegoAdivinaNumero(int vidasIniciales, int numeroSecreto) {
+public class JuegoAdivinaNumero extends Juego implements Jugable {
 
+	protected int numeroSecreto;
+
+	public JuegoAdivinaNumero(int vidasIniciales) {
+		
 		super(vidasIniciales);
-		this.numeroSecreto = numeroSecreto;
+		asignarNumeroAleatorio();
 	}
-
+	
+	protected void asignarNumeroAleatorio() {
+		Random r = new Random(new Date().getTime());
+		numeroSecreto = r.nextInt(10);
+	}
 	@Override
 	public void juega() {
 		
@@ -53,6 +64,19 @@ public class JuegoAdivinaNumero extends Juego {
 	
 	protected boolean validaNumero(int numero) {
 		return true;
+	}
+
+	@Override
+	public void muestraNombre() {
+		
+		System.out.println("Adivina un nœmero");
+	}
+
+	@Override
+	public void muestraInfo() {
+		
+		System.out.println("Instrucciones: Tienes " + getVidasRestantes() + " intentos para adivinar un nœmero entre 0 y 10");
+		
 	}
 	
 }
