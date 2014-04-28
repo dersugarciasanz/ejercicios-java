@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.dersugarcia.empresas.Empresa;
+import com.dersugarcia.excepciones.EmpresaCompletaException;
 
 public class EmpresaTest {
 	Empresa empresa;
@@ -14,7 +15,7 @@ public class EmpresaTest {
 	public void setUp() throws Exception {
 		
 		empresa = new Empresa("Empresa1", 5);
-		empresa.nuevoEmpleado("Empleado1", 500);
+		empresa.nuevoEmpleado("Empleado1", 1000);
 	}
 	
 	@Test 
@@ -35,6 +36,12 @@ public class EmpresaTest {
 	public void testDespideEmpleado() {
 		
 		empresa.despideEmpleado(0);
+		try {
+			empresa.nuevoEmpleado("Dersu", 2000);
+		} catch (EmpresaCompletaException e) {
+			fail("La empresa no deber’a estar completa");
+		}
+		empresa.despideEmpleado(1);
 		assertNull(empresa.getEmpleado(0));
 		
 	}

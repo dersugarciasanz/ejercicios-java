@@ -58,7 +58,7 @@ public class Empresa implements IEmpresa {
 		IEmpleado empleado = getEmpleado(num);
 		if(empleado != null) {
 			
-			empleados.remove(num);
+			empleados.remove(empleado);
 		}
 	}
 	
