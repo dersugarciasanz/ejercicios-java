@@ -56,25 +56,32 @@ public class Empresa implements IEmpresa {
 		if(empleado != null) {
 			
 			empleados.remove(empleado);
+			empleado.despedir();
 		}
 	}
 	
 	public void nuevoEmpleado(String nombre, int sueldo) throws EmpresaCompletaException {
 		
-		if(empleados.size() < tamanio) {
-			
-			empleados.add(new Empleado(this, nombre, sueldo));
-			contador++;
-		} else {
+		if(empleados.size() == tamanio) {
 			
 			throw new EmpresaCompletaException();
 		}
+
+		empleados.add(new Empleado(this, nombre, sueldo));
+		contador++;
+		
 	}
 
-	public void ascender(Ejecutivo e) {
+	public void ascender(Ejecutivo ej) {
 		
-		despideEmpleado(e.getNumEmpleado());
-		empleados.add(e);
+		for(int i=0; i<empleados.size(); i++) {
+			
+			IEmpleado e = empleados.get(i);
+			if(e.getNumEmpleado() == ej.getNumEmpleado()) {
+				
+				empleados.set(empleados.indexOf(e), ej);
+			}
+		}
 	}
 	
 }

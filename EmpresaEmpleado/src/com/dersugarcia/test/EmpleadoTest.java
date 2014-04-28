@@ -40,7 +40,8 @@ public class EmpleadoTest {
 	public void testDespedir() {
 		
 		empleado.despedir();
-		assertNull(empresa.getEmpleado(0));
+		assertEquals(0, empleado.getNumEmpleado());
+		assertEquals(0.0, empleado.getSueldo(),0.0);
 	}
 
 	@Test

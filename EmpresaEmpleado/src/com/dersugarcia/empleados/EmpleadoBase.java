@@ -59,9 +59,10 @@ public abstract class EmpleadoBase implements IEmpleado {
 	}
 	
 	public void despedir() {
-		
-		empresa.despideEmpleado(numEmpleado);
+
 		empresa = null;
+		sueldo = 0.0;
+		numEmpleado = 0;
 	}
 	
 
