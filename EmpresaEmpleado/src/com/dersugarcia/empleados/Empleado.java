@@ -18,7 +18,7 @@ public class Empleado extends EmpleadoBase implements IEmpleado {
 	public void ascender() {
 		
 		Ejecutivo e = new Ejecutivo(empresa, nombre, sueldo, numEmpleado);
-		empresa.ascender(numEmpleado,e);
+		empresa.ascender(e);
 	}
 	
 }

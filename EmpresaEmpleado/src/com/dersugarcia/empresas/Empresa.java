@@ -74,9 +74,9 @@ public class Empresa implements IEmpresa {
 		}
 	}
 
-	public void ascender(int numEmpleado, Ejecutivo e) {
+	public void ascender(Ejecutivo e) {
 		
-		despideEmpleado(numEmpleado);
+		despideEmpleado(e.getNumEmpleado());
 		empleados.add(e);
 	}
 	

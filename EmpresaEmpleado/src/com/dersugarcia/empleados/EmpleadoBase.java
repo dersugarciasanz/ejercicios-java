@@ -64,11 +64,7 @@ public abstract class EmpleadoBase implements IEmpleado {
 		empresa = null;
 	}
 	
-	public void ascender() {
-		
-		Ejecutivo e = new Ejecutivo(empresa, nombre, sueldo, numEmpleado);
-		empresa.ascender(numEmpleado,e);
-	}
+
 
 
 
