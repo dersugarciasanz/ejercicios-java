@@ -40,17 +40,12 @@ public class Empresa implements IEmpresa {
 	
 	public IEmpleado getEmpleado(int num) {
 		
-		IEmpleado e = null;
-		int index = 0;
-		while(e == null && index < empleados.size()) {
-			
-			if(empleados.get(index).getNumEmpleado() == num) {
-				
-				e = empleados.get(index);
+		for(IEmpleado e: empleados) {
+			if(e.getNumEmpleado() == num) {
+				return e;
 			}
-			index++;
 		}
-		return e;
+		return null;
 	}
 	
 	public void despideEmpleado(int num) {
