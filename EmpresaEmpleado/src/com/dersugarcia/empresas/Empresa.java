@@ -41,7 +41,9 @@ public class Empresa implements IEmpresa {
 	public IEmpleado getEmpleado(int num) {
 		
 		for(IEmpleado e: empleados) {
+			
 			if(e.getNumEmpleado() == num) {
+				
 				return e;
 			}
 		}
