@@ -22,6 +22,7 @@ public class Application {
 
 			Jugable j;
 			j = eligeJuego();
+			((Juego)j).reiniciaPartida();
 			j.muestraNombre();
 			j.muestraInfo();
 			j.juega();
@@ -35,6 +36,7 @@ public class Application {
 
 		int numero;
 		do {
+			
 			System.out.print("Elige juego: \n0- ");
 			juegos.get(0).muestraNombre();
 			System.out.print("1- ");

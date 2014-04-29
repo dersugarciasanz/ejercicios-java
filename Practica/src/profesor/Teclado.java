@@ -4,18 +4,20 @@ import java.util.Scanner;
 
 public abstract class Teclado {
 	
-	private static Scanner entrada = new Scanner(System.in);
+
 	
 	public static int leeEntero() {
-		
+		Scanner entrada = new Scanner(System.in);
 		int numero = 0;
 		boolean seguir = true;
 		do {
+			
 			try {
 				
-				numero = entrada.nextInt();
+				numero = Integer.parseInt(entrada.next());
+				
 				seguir = false;
-			}catch(NumberFormatException e) {
+			}catch(NumberFormatException  e) {
 				
 				System.out.println("Debe introducir un nœmero v‡lido.");
 			} catch(Exception ex) {
