@@ -82,6 +82,16 @@ public class JuegoTest {
 			System.out.println(e.getMessage());
 		}
 		
+//		in = new ByteArrayInputStream("3".getBytes());
+//		System.setIn(in);
+//		
+//		try {
+//			juego = Application.eligeJuego();
+//			System.out.println(juego.getClass().getSimpleName());
+//		} catch (JuegoException e) {
+//			System.out.println(e.getMessage());
+//		}
+		
 		in = new ByteArrayInputStream("z".getBytes());
 		System.setIn(in);
 		
