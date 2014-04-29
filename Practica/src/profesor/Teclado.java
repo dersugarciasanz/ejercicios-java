@@ -2,11 +2,13 @@ package profesor;
 
 import java.util.Scanner;
 
-public class Teclado {
-	public int leeEntero() {
+public abstract class Teclado {
+	
+	private static Scanner entrada = new Scanner(System.in);
+	
+	public static int leeEntero() {
 		
 		int numero = 0;
-		Scanner entrada = new Scanner(System.in);
 		boolean seguir = true;
 		do {
 			try {
@@ -17,6 +19,7 @@ public class Teclado {
 				
 				System.out.println("Debe introducir un nœmero v‡lido.");
 			} catch(Exception ex) {
+				
 				numero = 0;
 				seguir = false;
 			}
