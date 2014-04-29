@@ -7,8 +7,9 @@ public abstract class Juego {
 	private static int record = 0;
 	
 	public Juego(int vidasIniciales) {
+		
 		this.vidasIniciales = vidasIniciales;
-		vidasRestantes = vidasIniciales;
+		reiniciaPartida();
 	}
 	
 	public int getVidasRestantes() {
