@@ -13,7 +13,11 @@ public class Application {
 	public static ArrayList<Jugable> juegos = new ArrayList<Jugable>();
 	
 
-	public static void main(String[] args) {
+	public static void main(String args[]) {
+		juega();
+	}
+	
+	public static void juega() {
 
 		inicializarLista();
 
@@ -23,7 +27,7 @@ public class Application {
 			Jugable j;
 			try {
 				j = eligeJuego();
-				((Juego)j).reiniciaPartida();
+//				((Juego)j).reiniciaPartida();
 				j.muestraNombre();
 				j.muestraInfo();
 				j.juega();
