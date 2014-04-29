@@ -3,6 +3,7 @@ package juegos;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import juegos.excepciones.JuegoException;
 import juegos.factories.JuegoFactory;
 import juegos.interfaces.Jugable;
 import profesor.Teclado;
@@ -10,29 +11,39 @@ import profesor.Teclado;
 public class Application {
 
 	public static ArrayList<Jugable> juegos = new ArrayList<Jugable>();
+	
 
 	public static void main(String[] args) {
 
-		juegos.add(JuegoFactory.getJuegoAdivinaNumero(3));
-		juegos.add(JuegoFactory.getJuegoAdivinaPar(3));
-		juegos.add(JuegoFactory.getJuegoAdivinaImpar(3));
+		inicializarLista();
 
 		Scanner entrada = new Scanner(System.in);
 		do {
 
 			Jugable j;
-			j = eligeJuego();
-			((Juego)j).reiniciaPartida();
-			j.muestraNombre();
-			j.muestraInfo();
-			j.juega();
+			try {
+				j = eligeJuego();
+				((Juego)j).reiniciaPartida();
+				j.muestraNombre();
+				j.muestraInfo();
+				j.juega();
+			} catch (JuegoException e) {
+				System.out.println(e.getMessage());
+			}
+			
 
 			System.out.println("Desea continuar? S/N");
 		} while (entrada.next().toUpperCase().charAt(0) == 'S');
 		System.out.println("Fin del programa.");
 	}
 
-	public static Jugable eligeJuego() {
+	public static void inicializarLista() {
+		
+		juegos.add(JuegoFactory.getJuegoAdivinaNumero(3));
+		juegos.add(JuegoFactory.getJuegoAdivinaPar(3));
+		juegos.add(JuegoFactory.getJuegoAdivinaImpar(3));
+	}
+	public static Jugable eligeJuego() throws JuegoException {
 
 		int numero;
 		do {

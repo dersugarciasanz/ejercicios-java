@@ -16,7 +16,7 @@ public class JuegoAdivinaPar extends JuegoAdivinaNumero {
 			return true;
 		} else {
 			
-			System.out.println("Error: El nœmero" + numero + " no es par.");
+			System.out.println("Error: El nœmero " + numero + " no es par.");
 			return false;
 		}
 	}

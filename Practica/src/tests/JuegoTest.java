@@ -6,6 +6,7 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
 import juegos.Application;
+import juegos.excepciones.JuegoException;
 import juegos.factories.JuegoFactory;
 import juegos.interfaces.Jugable;
 import juegos.numeros.JuegoAdivinaImpar;
@@ -51,21 +52,46 @@ public class JuegoTest {
 		//JuegoAdivinaNumero
 		ByteArrayInputStream in = new ByteArrayInputStream("0".getBytes());
 		System.setIn(in);
+		Application.inicializarLista();
+		Jugable juego;
+		try {
+			juego = Application.eligeJuego();
+			assertTrue(juego instanceof JuegoAdivinaNumero);
+		} catch (JuegoException e) {
+			System.out.println(e.getMessage());
+		}
 		
-		Jugable juego = Application.eligeJuego();
-		assertTrue(juego instanceof JuegoAdivinaNumero);
 		
 		in = new ByteArrayInputStream("1".getBytes());
 		System.setIn(in);
 		
-		juego = Application.eligeJuego();
-		assertTrue(juego instanceof JuegoAdivinaNumero);
+		try {
+			juego = Application.eligeJuego();
+			assertTrue(juego instanceof JuegoAdivinaPar);
+		} catch (JuegoException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		in = new ByteArrayInputStream("2".getBytes());
 		System.setIn(in);
 		
-		juego = Application.eligeJuego();
-		assertTrue(juego instanceof JuegoAdivinaNumero);
+		try {
+			juego = Application.eligeJuego();
+			assertTrue(juego instanceof JuegoAdivinaImpar);
+		} catch (JuegoException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		in = new ByteArrayInputStream("z".getBytes());
+		System.setIn(in);
+		
+		try {
+			juego = Application.eligeJuego();
+			fail("El programa deber’a lanzar una excepci—n.");
+		} catch (Exception e) {
+			assertTrue(e instanceof JuegoException);
+			System.out.println(e.getMessage());
+		}
 	}
 	
 

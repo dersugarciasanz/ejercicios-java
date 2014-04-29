@@ -16,7 +16,7 @@ public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 			return true;
 		} else {
 			
-			System.out.println("Error: El nœmero" + numero + " no es impar.");
+			System.out.println("Error: El nœmero " + numero + " no es impar.");
 			return false;
 		}
 	}
