@@ -1,7 +1,6 @@
 package juegos.numeros;
 
-import java.util.Date;
-import java.util.Random;
+import juegos.factories.RandomFactory;
 
 public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 
@@ -11,9 +10,12 @@ public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 	}
 	
 	protected boolean validaNumero(int numero) {
+		
 		if(numero%2 != 0) {
+			
 			return true;
 		} else {
+			
 			System.out.println("Error: El nœmero" + numero + " no es impar.");
 			return false;
 		}
@@ -31,12 +33,10 @@ public class JuegoAdivinaImpar extends JuegoAdivinaNumero {
 		
 	}
 	
-	protected void asignarNumeroAleatorio() {
-		
-		Random r = new Random(new Date().getTime());
-		do {
-			
-			numeroSecreto = r.nextInt(10);
-		} while(numeroSecreto %2 == 0);
+	@Override
+	public void reiniciaPartida() {
+		super.reiniciaPartida();
+		numeroSecreto = RandomFactory.getOddRandom(10); 
 	}
+	
 }
