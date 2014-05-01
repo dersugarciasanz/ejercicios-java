@@ -26,19 +26,19 @@ public class Application {
 
 			Jugable j;
 			try {
+				
 				j = eligeJuego();
-//				((Juego)j).reiniciaPartida();
 				j.muestraNombre();
 				j.muestraInfo();
 				j.juega();
 			} catch (JuegoException e) {
+				
 				System.out.println(e.getMessage());
 			}
-			
-
 			System.out.println("Desea continuar? S/N");
 		} while (entrada.next().toUpperCase().charAt(0) == 'S');
 		System.out.println("Fin del programa.");
+		entrada.close();
 	}
 
 	public static void inicializarLista() {
