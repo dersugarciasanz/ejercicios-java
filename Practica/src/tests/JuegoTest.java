@@ -97,7 +97,7 @@ public class JuegoTest {
 		
 		try {
 			juego = Application.eligeJuego();
-			fail("El programa debería lanzar una excepción.");
+			fail("El programa deber√≠a lanzar una excepci√≥n.");
 		} catch (Exception e) {
 			assertTrue(e instanceof JuegoException);
 			System.out.println(e.getMessage());

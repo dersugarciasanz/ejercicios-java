@@ -15,7 +15,7 @@ public abstract class Teclado {
 			numero = Integer.parseInt(entrada.next());
 		} catch (NumberFormatException e) {
 
-			throw new JuegoException("Debe introducir un n�mero v�lido.");
+			throw new JuegoException("Debe introducir un número válido.");
 		} catch (Exception ex) {
 
 			numero = 0;

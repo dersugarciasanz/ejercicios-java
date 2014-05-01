@@ -11,34 +11,26 @@ public class JuegoAdivinaPar extends JuegoAdivinaNumero {
 	
 	protected boolean validaNumero(int numero) {
 		
-		if(numero%2 == 0) {
+		boolean condicion = (numero%2 == 0);
+		if(!condicion) {
 			
-			return true;
-		} else {
-			
-			System.out.println("Error: El número " + numero + " no es par.");
-			return false;
+			System.out.println("Error: El n√∫mero " + numero + " no es par.");
 		}
+		return condicion;
+	}
+		
+	//M√©todo llamado por JuegoAdivinaNumero.reiniciarPartida
+	@Override
+	protected int obtenerNumeroSecreto() {
+		
+		return RandomFactory.getEvenRandom(10); 
 	}
 	
+	//M√©todo llamado por el constructor de JuegoAdivinaNumero
 	@Override
-	public void muestraNombre() {
+	protected void inicializarInfo() {
 		
-		System.out.println("Adivina un número par");
+		info =  "par entre 0 y 10";
 	}
-
-	@Override
-	public void muestraInfo() {
-		
-		System.out.println("Instrucciones: Tienes " + getVidasRestantes() + " intentos para adivinar un número par entre 0 y 10");
-	}
-	
-	@Override
-	public void reiniciaPartida() {
-		
-		super.reiniciaPartida();
-		numeroSecreto = RandomFactory.getEvenRandom(10); 
-	}
-
 
 }

@@ -9,19 +9,25 @@ import juegos.interfaces.Jugable;
 public class JuegoAdivinaNumero extends Juego implements Jugable {
 
 	protected int numeroSecreto;
+	protected String info;
 
 	public JuegoAdivinaNumero(int vidasIniciales) {
 
 		super(vidasIniciales);
+		inicializarInfo();
+	}
+	
+	protected void inicializarInfo() {
+		info =  "entre 0 y 10";
 	}
 
 	@Override
 	public void juega() {
 
-		int numero = -1;
+		int numero = 0;
 		do {
 
-			System.out.println("Adivina un número entre 0 y 10: ");
+			muestraNombre();
 			try {
 
 				numero = Teclado.leeEntero();
@@ -35,8 +41,8 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 					actualizarRecord();
 				} else if (quitarVida()) {
 
-					System.out.println("El número introducido es "
-							+ mensaje(numero) + " al número secreto.");
+					System.out.println("El n√∫mero introducido es "
+							+ mensaje(numero) + " al n√∫mero secreto.");
 
 				}
 			} catch (JuegoException e) {
@@ -68,22 +74,26 @@ public class JuegoAdivinaNumero extends Juego implements Jugable {
 	@Override
 	public void muestraNombre() {
 
-		System.out.println("Adivina un número");
+		System.out.println("Adivina un n√∫mero " + info);
 	}
 
 	@Override
 	public void muestraInfo() {
-
+		
 		System.out.println("Instrucciones: Tienes " + getVidasRestantes()
-				+ " intentos para adivinar un número entre 0 y 10");
+				+ " intentos para adivinar un n√∫mero " + info);
 
 	}
 
 	public void reiniciaPartida() {
 
 		super.reiniciaPartida();
-		numeroSecreto = RandomFactory.getRandomInt(10);
+		numeroSecreto = obtenerNumeroSecreto();
 
 	}
 
+	protected int obtenerNumeroSecreto() {
+		
+		return RandomFactory.getRandomInt(10);
+	}
 }
